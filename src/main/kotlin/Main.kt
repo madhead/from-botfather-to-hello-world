@@ -1,17 +1,10 @@
-import dev.inmo.tgbotapi.extensions.behaviour_builder.telegramBotWithBehaviourAndLongPolling
-import dev.inmo.tgbotapi.extensions.behaviour_builder.triggers_handling.onContentMessage
-import dev.inmo.tgbotapi.extensions.utils.extensions.raw.from
-import dev.inmo.tgbotapi.extensions.utils.extensions.raw.text
+import dev.inmo.tgbotapi.extensions.api.send.sendTextMessage
+import dev.inmo.tgbotapi.extensions.api.telegramBot
+import dev.inmo.tgbotapi.types.ChatId
 
 suspend fun main(args: Array<String>) {
     val token = args[0]
-    val (_, job) = telegramBotWithBehaviourAndLongPolling(token) {
-        onContentMessage {
-            val user = it.from
+    val bot = telegramBot(token)
 
-            println("${user?.firstName ?: "Unknown user"} wrote ${it.text}")
-        }
-    }
-
-    job.join()
+    bot.sendTextMessage(ChatId(254767265), "Hello, World!")
 }
