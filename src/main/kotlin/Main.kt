@@ -80,7 +80,7 @@ suspend fun main(args: Array<String>) {
             )
         }
 
-        onMessageDataCallbackQuery("next") {
+        onMessageDataCallbackQuery("back") {
             bot.edit(
                 chatId = it.message.chat.id,
                 messageId = it.message.messageId,
