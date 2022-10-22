@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+    implementation("dev.inmo:tgbotapi:3.2.7")
     testImplementation(kotlin("test"))
 }
 
