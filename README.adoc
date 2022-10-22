@@ -1,0 +1,3 @@
+# From BotFather to 'Hello World'
+
+Telegram's https://core.telegram.org/bots/tutorial[From BotFather to 'Hello World'] re-implemented with https://kotlinlang.org[Kotlin], https://gradle.org[Gradle], and https://github.com/InsanusMokrassar/TelegramBotAPI[InsanusMokrassar/TelegramBotAPI] library.
