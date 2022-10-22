@@ -1,7 +1,13 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+import dev.inmo.tgbotapi.extensions.behaviour_builder.telegramBotWithBehaviourAndLongPolling
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+suspend fun main(args: Array<String>) {
+    val token = args[0]
+    val (_, job) = telegramBotWithBehaviourAndLongPolling(token) {
+        this.allUpdatesFlow.onEach { println(it) }.launchIn(GlobalScope)
+    }
+
+    job.join()
 }
